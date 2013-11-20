@@ -1,0 +1,27 @@
+---
+- name: ensure git present
+  yum: name=git state=present
+
+- name: git checkout burlresearch|bash
+  git: repo=git://github.com/burlresearch/bash dest=~/bash
+
+- name: link shell RCs
+  file: state=link force=yes src=~/bash/{{ item }} dest=~/{{ item }}
+  with_items:
+    - .aliases
+    - .bashrc
+    - .gvimrc
+    - .tidyrc
+    - .vimrc
+
+- name: ensure curl present
+  yum: name=curl state=present
+
+- name: install vim autoload
+  file: state=directory path=~/.vim/autoload
+
+- name: install vim bundle
+  file: state=directory path=~/.vim/bundle
+
+- name: install vim pathogen
+  shell: curl 'www.vim.org/scripts/download_script.php?src_id=19375' -o ~/.vim/autoload/pathogen.vim creates=~/.vim/autoload/pathogen.vim

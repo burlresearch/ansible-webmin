@@ -1,0 +1,39 @@
+---
+- name: RPM_KEY EPEL
+  rpm_key: state=present key=http://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-6
+
+- name: RPM_KEY REMI
+  rpm_key: state=present key=http://rpms.famillecollet.com/RPM-GPG-KEY-remi
+
+- name: RPM EPEL REPO
+  yum: > 
+    state=present
+    name=http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+  
+- name: RPM REMI REPO
+  yum: > 
+    state=present
+    name=http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
+
+# todo: make this whole block conditional on Percona:installed
+- name: REMI upgrade and remove mysql for deps
+  yum: enablerepo=remi state=latest name=mysql
+  yum: enablerepo=remi state=latest name=mysql-server
+  yum: enablerepo=remi state=latest name=mysql-libs
+  yum: enablerepo=remi state=absent name=mysql
+  yum: enablerepo=remi state=absent name=mysql-server
+
+- name: RPM PERCONA REPO
+  yum: > 
+    state=present
+    name=http://www.percona.com/downloads/percona-release/percona-release-0.0-1.x86_64.rpm
+
+- name: percona install database server
+  yum: enablerepo=percona state=latest name=Percona-Server-client-56
+  yum: enablerepo=percona state=latest name=Percona-Server-server-56
+  yum: enablerepo=percona state=latest name=Percona-Server-shared-56
+  yum: enablerepo=percona state=latest name=Percona-Server-shared-compat
+  notify: restart mysql
+
+- name: yum upgrade all packages from Remi + Percona
+  yum: enablerepo=remi,percona state=latest name=*
