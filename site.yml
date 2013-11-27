@@ -1,8 +1,0 @@
----
-- hosts: all 
-  user: root
-  roles:
-    - gitbash
-    - iptables
-    - webmin
-    - percona
