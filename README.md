@@ -6,7 +6,7 @@ Server Provisioning with Ansible
 
 # Introduction
 
-In my last article, [4](Webmin Configuration on CentOS), I discussed all the steps that I like to take when I setup a new server.
+In my last article, [Webmin Configuration on CentOS][4], I discussed all the steps that I like to take when I setup a new server.
 Not that I actually *like* taking all those steps, just that's what I typically want done.
 Like any good programmer, I am actually very lazy, so there must be a better way do all of this.
 
