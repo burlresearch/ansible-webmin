@@ -3,13 +3,42 @@ Server Provisioning with Ansible
 ## Robots Building Robots
 # Introduction
 
-In my last article, [Webmin Configuration on CentOS][4], I discussed the steps setup a new server complete with [Webmin][3] and [Percona][0].
+In my last article, [Webmin Configuration on CentOS][4], I discussed the steps setup a new server complete with [Webmin][3] and [Percona][9].
 One glance at the article will make it obvious that there are quite a few steps.
 Like any good programmer, I am very lazy, so there must be a better way to perform this automatically.
+
+> “Most of you are familiar with the virtues of a programmer.  There are three, of course: laziness, impatience, and hubris.”
+
+> &ndash;&nbsp;Larry Wall 
 
 Of course, there is, using a process known as [server provisioning][7].
 There are many different approaches that can be employed for doing this.
 We have found [Ansible][8] to be one of the simplest and therefore, most appealing for our purposes.
+
+# What's the Point?
+
+Before I go and get us too mired in the technical details of automated server provisioning, why are we talking about this?
+
+1. Previously I discussed the details involved with setting up a single server.
+1. Here I'd like to talk about how to automate that procedure.
+1. Next we will discuss *virtualization* - how to mimic precisely a production environment, without the hardware.
+
+So here's the point - **Quality Assurance** for both our clients and for us as developers.
+We can use *virtual servers* to precisely mimic the production environments that our software will run on later, *in real life*.
+There are several advantages to this, but the main goal is to save time [money], while increasing site reliability.
+
+So this allows us to create predictable environments in which to develop.
+Whether we're building a simple WordPress website, or a beastly complicated Java Web Application like [76insights][10], we can mock the machine it will run on.
+This is great for development, given that our team members each *develop on different operating systems*.
+Also, and more critically, this reduces the number of variables between development and production environments.
+
+## Motivation
+
+Recently we took part in the *iWeb Cloud &Beta;eta* program in order to help evaluate their new cloud server offering.
+This gave us the opportunity to quickly generate and regenerate server nodes.
+Became apparent that we needed a mechanism to quickly and easliy generate servers with the software of our choice.
+Servers are no longer monolithic entities, but rather dispensible processing agents that simply run an operating system.
+
 
 # Ansible
 
@@ -36,6 +65,8 @@ Some of the primary features of Ansible (and the ones that are important for us)
 
 The basic idea with the Ansible approach is to build *playbooks*.
 Simply enough, these playbooks contain *plays*, which are simply snippets that allow us to script the steps of the deployment tasks.
+These tasks are then 'pushed' onto the target machine(s) *et voila*, we produce exactly the results we want with a single command.
+
 
 ## Our First Playbook
 
@@ -94,4 +125,6 @@ In conclusion ...
 [5]:http://iweb.com/cloud "iWeb Cloud Services"
 [6]:#conclusion
 [7]:http://en.wikipedia.org/wiki/Provisioning#Server_provisioning
-[8]:http://www.ansibleworks.com/tech/
+[8]:http://www.ansibleworks.com/tech
+[9]:http://www.percona.com/software
+[10]:http://76insights.com
