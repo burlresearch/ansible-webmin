@@ -12,4 +12,4 @@
   shell: ~/install.sh --yes chdir=/root
 
 - name: Virtualmin Post-Installation Wizard
-  pause: prompt="virtualmin ready for post-installation, visit - https://localhost:10000"
+  pause: prompt="virtualmin ready for post-installation, visit - https://ocean.76labs.com:10000"
