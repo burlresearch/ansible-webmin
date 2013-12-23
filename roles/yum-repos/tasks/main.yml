@@ -1,0 +1,20 @@
+---
+
+- name: epel-release
+  rpm_key: state=present key=http://rpms.famillecollet.com/RPM-GPG-KEY-remi
+
+- name: epel-release-repository rpm
+  yum: >
+    state=present
+    name=http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+
+- name: rpm_key remi
+  rpm_key: state=present key=http://rpms.famillecollet.com/RPM-GPG-KEY-remi
+
+- name: remi-repository rpm
+  yum: >
+    state=present
+    name=http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
+
+- name: install htop
+  yum: enablerepo=remi state=latest name=htop

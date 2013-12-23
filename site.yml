@@ -1,0 +1,7 @@
+---
+- hosts: all
+  user: root
+  roles:
+    - webmin
+    - php
+    - percona

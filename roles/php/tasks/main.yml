@@ -1,0 +1,12 @@
+---
+- name: yum upgrade to modern php
+  yum: state=removed name=php*
+
+- name: yum upgrade to modern php
+  yum: state=latest name=php enablerepo=remi,remi-php55
+
+- name: yum upgrade to modern php-mcrypt
+  yum: state=latest name=php-mcrypt enablerepo=remi,remi-php55
+
+#- name: yum upgrade all packages from Remi
+#  yum: enablerepo=remi,remi-php55 state=latest name=*
