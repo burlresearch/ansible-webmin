@@ -168,7 +168,7 @@ Here is the file-structure for the playbook:
 As [I explain below][ansible], it is simply a matter of checking out the above playbook and running it:
 
 ```
-git clone ansible-webmin
+git clone https://github.com/burlresearch/ansible-webmin.git
 cd ansible-webmin
 ansible-playbook -i hosts site.yml
 ```
@@ -223,7 +223,7 @@ Then, it is simply a matter of checking out the Ansible scripts I have prepared 
 (ensure the edit the `hosts` file specific to your server):
 
 ```
-git clone ansible-webmin
+git clone https://github.com/burlresearch/ansible-webmin.git
 cd ansible-webmin
 ansible-playbook -i hosts site.yml
 ```
