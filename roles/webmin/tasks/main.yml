@@ -8,8 +8,8 @@
 - name: virtualmin install executable
   file: path=/root/install.sh mode=0755
 
-- name: virtualmin install (~20 mins) track via $ vagrant ssh -c 'sudo tail -f /root/virtualmin-install.log'
+- name: virtualmin install (~10 mins) track via $ sudo tail -f /root/virtualmin-install.log
   shell: ~/install.sh --yes chdir=/root
 
 - name: Virtualmin Post-Installation Wizard
-  pause: prompt="virtualmin ready for post-installation, visit - https://ocean.76labs.com:10000"
+  pause: prompt="virtualmin ready for post-installation, visit - https://{{inventory_hostname}}:10000"
