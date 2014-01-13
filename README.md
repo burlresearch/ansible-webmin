@@ -5,7 +5,7 @@ Server Provisioning CentOS with Ansible
 
 In my last article, [Webmin Configuration on CentOS][4], I discussed the steps to setup a new server complete with [Webmin][3] and [Percona][9].
 This is our preferred setup for reliable webservers, but one glance at the article will make it obvious that there are quite a few steps.
-Like any good programmer, I can't stand repitition, hence seek to automate.
+Like any good programmer, I can't stand repetition, hence seek to automate.
 
 > “Most of you are familiar with the virtues of a programmer.  There are three, of course: laziness, impatience, and hubris.”
 
@@ -16,8 +16,8 @@ There are many different tools that can be employed for doing this, and we have 
 I'd like to write about the approach that we have converged on.
 
 We find [Ansible][8] to be the simplest and therefore, most appealing for our purposes.
-Other approches that we have used, like [Chef][11], are very powerful, but equally configuration heavy
-- and more complex than what we typcally need for webservers.
+Other approaches that we have used, like [Chef][11], are very powerful, but equally configuration heavy
+- and more complex than what we typically need for webservers.
 
 Since my last article there is a new minor-version of CentOS available - [CentOS 6.5][1].
 This new version alleviates the need for some of the caveats in my last article, but creates some new [*gotcha's*][gotcha] along the way.
@@ -38,8 +38,8 @@ Previously I discussed the details involved with setting up a single server, thi
 Automating this procedure means server deployment is:
 
 - **less expensive** - speeding up the process means less time and less cost to produce our level of excellence
-- **more reliable** - automatic setup helps remove the possiblity of human error, and means we remember all the details
-- **more familiar** - a predicatable environment to run on means we can tune our development processes
+- **more reliable** - automatic setup helps remove the possibility of human error, and means we remember all the details
+- **more familiar** - a predictable environment to run on means we can tune our development processes
 
 So *this is the point* - improved **Quality Assurance** for both our clients and for us as developers.
 Additionally,  we can use *virtual servers* to precisely mimic the production environments that our software will run on later, *in real life*.
@@ -56,9 +56,9 @@ Also, and more critically, this reduces the number of variables between developm
 The idea from the last article was basically writing down some of the modifications that we usually make when building a new server.
 Roughly speaking, the overview of what we did from a new OS install can be listed:
 
-- install webmin
+- install Webmin
 - make sure Apache is installed
-- install Percona (replacing MySQL)
+- install Persona (replacing MySQL)
 - ensure PHP is up-to-date
 - tweak the FastCGI configuration
 
@@ -83,7 +83,7 @@ These tasks are then 'pushed' onto the target machine(s) *et voila*, we produce 
 ## Our First Playbook
 
 In order to create our first playbook [the naïve but] quickest way is to literally just start scripting.
-The following snippet will actually perform all the steps we need to do to install webmin on a fresh machine:
+The following snippet will actually perform all the steps we need to do to install Webmin on a fresh machine:
 
 > vim webmin.yml
 
@@ -125,7 +125,7 @@ To avoid this pitfall and indeed to follow [Ansible Best Practices][14], next we
 
 ## A More Advanced Layout
 
-As our playbooks start to grow in complexity, we quickly want to start fractioning out the tasks in more digestable bits.
+As our playbooks start to grow in complexity, we quickly want to start fractioning out the tasks in more digestible bits.
 This is where `roles` come in and we can start to [layout our playbook according to best practices][14].
 I have built a playbook that will provision:
 
@@ -179,7 +179,7 @@ By putting a bit of work into planning for the system we know we need, we can ac
 
 1. **less expensive**
 1. **more reliable**
-1. **more predicatable**
+1. **more predictable**
 
 
 # Provisioning Cloud Servers
@@ -187,15 +187,15 @@ By putting a bit of work into planning for the system we know we need, we can ac
 ## iWeb Cloud - Motivation
 
 Recently we took part in the [*iWeb Cloud &Beta;eta*][5] program in order to help evaluate their new cloud server offering.
-Became apparent that we needed a mechanism to quickly and easliy generate servers with the software of our choice.
+Became apparent that we needed a mechanism to quickly and easily generate servers with the software of our choice.
 Using Ansible gave us the opportunity to quickly generate and regenerate server nodes.
-Servers are no longer monolithic entities, but rather dispensible processing agents that simply run an operating system.
+Servers are no longer monolithic entities, but rather dispensable processing agents that simply run an operating system.
 
 ## <span id="digitalocean">DigitalOcean - Live Testing the Scripts</a>
 
 No matter which choice you make for our cloud server provider, Ansible will work since it only requires an `SSH` connection.
 I chose [DigitalOcean][12] for testing the scripts on this article.
-Though iWeb would have been just as simple, it was more convenient for me to **not to charge the coroporate account** in this instance.
+Though iWeb would have been just as simple, it was more convenient for me to **not to charge the corporate account** in this instance.
 So here are the steps I followed to get my DigialOcean Cloud Service running:
 
 1. Sign Up or Log In: to your DigitalOcean account: `https://cloud.digitalocean.com/registrations/new`
@@ -206,12 +206,12 @@ So here are the steps I followed to get my DigialOcean Cloud Service running:
 1. `Create Droplet`
 
 Congratulations, you have a new, **LIVE** server, for testing and deployment!
-If you're concerned about the price, all the tesing I did for this article ended up costing me `US $0.14` - money well spent :)
+If you're concerned about the price, all the testing I did for this article ended up costing me `US $0.14` - money well spent :)
 
 ## <span id="ansible">Ansible - Setup</a>
 
-I use a Ubuntu Linux workstation - so your milage may vary [depending on your operating system][15].
-For me, setting up ansible was a matter of:
+I use a Ubuntu Linux workstation - so your mileage may vary [depending on your operating system][15].
+For me, setting up Ansible was a matter of:
 
 ```
 sudo add-apt-repository ppa:rquillo/ansible
@@ -219,7 +219,7 @@ sudo apt-get update
 sudo apt-get install ansible
 ```
 
-Then, it is simply a matter of checking out the ansible scripts I have prepared on `github` and running the playbook
+Then, it is simply a matter of checking out the Ansible scripts I have prepared on `github` and running the playbook
 (ensure the edit the `hosts` file specific to your server):
 
 ```
