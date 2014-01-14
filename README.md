@@ -1,6 +1,7 @@
 # Server Provisioning CentOS with Ansible
 
 ![Robots Building Robots][1]
+ 
 
 ## Robots Building Robots
 
@@ -202,8 +203,7 @@ Previously we discussed the details involved with setting up a single server, ma
 In our next article we will discuss how to put all our developers on equal footing. We will discuss [*virtualization with Vagrant*][18] - how to precisely mimic a production environment, without any hardware…
 
 * * *
-
- [1]: http://aboutfacts.net/ComputRobot/CR74/PD/Advanced_Automation_for_Space_Missions_figure_5-29.jpg
+ [1]: /img/scott-blogpost2.png
  [2]: http://www.ansibleworks.com/tech
  [3]: http://wiki.centos.org/Manuals/ReleaseNotes/CentOS6.5 "CentOS 6.5"
  [4]: http://76design.com/provision-webmin-centos "Webmin Configuration on CentOS"
@@ -221,3 +221,4 @@ In our next article we will discuss how to put all our developers on equal footi
  [16]: http://en.wikipedia.org/wiki/Hosts_(file)
  [17]: http://docs.ansible.com/intro_installation.html "Ansible Installation"
  [18]: http://www.vagrantup.com "Vagrant - development environments made easy"
+ [111]: http://aboutfacts.net/ComputRobot/CR74/PD/Advanced_Automation_for_Space_Missions_figure_5-29.jpg
