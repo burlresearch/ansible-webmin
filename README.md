@@ -1,7 +1,6 @@
 # Server Provisioning CentOS with Ansible
 
-![Robots Building Robots][1]
- 
+![Robots Building Robots "Provisioning CentOS webservers with Ansible"][1]
 
 ## Robots Building Robots
 
