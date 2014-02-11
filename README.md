@@ -1,3 +1,5 @@
+> duplicated content from: http://76design.com/provision-centos-ansible/
+
 # Server Provisioning CentOS with Ansible
 
 ![Robots Building Robots "Provisioning CentOS webservers with Ansible"][1]
