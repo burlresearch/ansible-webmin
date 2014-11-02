@@ -1,6 +1,6 @@
 ---
 - name: set the hostname
-  hostname: name=acumen
+  hostname: name=ocean
 
 - name: download virtualmin install script
   tags: webmin
