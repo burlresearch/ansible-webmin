@@ -1,12 +1,13 @@
 ---
-- name: ensure wget present
-  yum: name=wget state=present
+- name: set the hostname
+  hostname: name=acumen
 
 - name: download virtualmin install script
-  shell: wget http://software.virtualmin.com/gpl/scripts/install.sh creates=/root/install.sh
-
-- name: virtualmin install executable
-  file: path=/root/install.sh mode=0755
+  tags: webmin
+  get_url: >
+    url=http://software.virtualmin.com/gpl/scripts/install.sh
+    dest=/root/install.sh
+    mode=0755
 
 - name: virtualmin install (~10 mins) track via $ sudo tail -f /root/virtualmin-install.log
   shell: ~/install.sh --yes chdir=/root
